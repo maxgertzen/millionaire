@@ -9,11 +9,13 @@ const QuestionWrapper = styled.div`
     gap: 10px;
 
     div.question {
-        column-span: all
-        padding: 20px;
+        grid-column-end: span 2;
         background-color: black;
         color: white;
         height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 

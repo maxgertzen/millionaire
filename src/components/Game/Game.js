@@ -14,15 +14,18 @@ let obj = {
 }
 
 const GameWrapper = styled.section`
-    width: 100%;
-    padding: 10px;
+    width: 90%;
     background-color: green;
+    margin: auto auto;
+    padding: 20px;
 `
 
 const Game = () => {
 
     const handleChoice = (e) => {
-        console.log(e.target.value)
+        console.log(e.target.innerText)
+        console.log(e.target.innerText === obj.correct_answer)
+        e.target.classList.add('selected')
     }
 
     return (
