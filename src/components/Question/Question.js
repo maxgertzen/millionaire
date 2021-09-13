@@ -1,20 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
+import AnswerOption from '../AnswerOption/AnswerOption'
 
 const QuestionWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
+    gap: 10px;
 
-    h3 {
+    div.question {
         column-span: all
+        padding: 20px;
+        background-color: black;
+        color: white;
+        height: 140px;
     }
 `
 
 const Question = ({ question, checkAnswer }) => {
     return (
         <QuestionWrapper>
-            <h3>{question.question}</h3>
+            <div className="question">
+                <h3>{question.question}</h3>
+            </div>
             {[...question["incorrect_answers"], question["correct_answer"]].sort(() => Math.random() - 0.5).map((value, index) => {
                 return <AnswerOption key={index} content={value} check={checkAnswer} />
             })}
