@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Question from '../Question/Question'
 
@@ -21,16 +21,16 @@ const GameWrapper = styled.section`
 `
 
 const Game = () => {
+    const [questionIndex, setQuestionIndex] = useState(0);
 
-    const handleChoice = (e) => {
-        console.log(e.target.innerText)
-        console.log(e.target.innerText === obj.correct_answer)
-        e.target.classList.add('selected')
+    const progressGame = (result) => {
+        if (result) setQuestionIndex(questionIndex + 1)
+        console.log('WRONG')
     }
 
     return (
         <GameWrapper>
-            <Question question={obj} checkAnswer={handleChoice} />
+            <Question question={obj} progress={progressGame} />
         </GameWrapper>
     )
 }

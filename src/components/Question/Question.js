@@ -19,14 +19,20 @@ const QuestionWrapper = styled.div`
     }
 `
 
-const Question = ({ question, checkAnswer }) => {
+const Question = ({ question, progress }) => {
+
+    const handleChoice = (e) => {
+
+        console.log(e.target.innerText === question.correct_answer)
+    }
+
     return (
         <QuestionWrapper>
             <div className="question">
                 <h3>{question.question}</h3>
             </div>
             {[...question["incorrect_answers"], question["correct_answer"]].sort(() => Math.random() - 0.5).map((value, index) => {
-                return <AnswerOption key={index} content={value} check={checkAnswer} />
+                return <AnswerOption key={index} content={value} check={handleChoice} />
             })}
         </QuestionWrapper>
     )
