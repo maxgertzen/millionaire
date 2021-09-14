@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { getApiQuestions } from '../../api'
 import Question from '../Question/Question'
 
 
@@ -27,6 +28,10 @@ const Game = () => {
         if (result) setQuestionIndex(questionIndex + 1)
         console.log('WRONG')
     }
+
+    useEffect(() => {
+        console.log(getApiQuestions())
+    }, [])
 
     return (
         <GameWrapper>

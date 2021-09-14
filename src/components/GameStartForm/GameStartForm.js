@@ -1,13 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { getApiQuestions } from '../../api';
 
 
 const GameStartForm = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
         try {
-            await getApiQuestion(data);
-            // dispatch setGameStart = true
+            await getApiQuestions();
+            // dispatch setGameStart = true with data.playerName
         } catch (error) {
 
         }
